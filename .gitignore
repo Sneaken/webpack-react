@@ -1,0 +1,12 @@
+# 前端依赖
+node_modules
+
+# IDE
+.idea
+.vscode
+
+# MacOs 文件存储
+*.DS_Store
+
+# 日志
+*.log
