@@ -13,6 +13,8 @@ module.exports = merge(baseWebpackConfig, {
       template: utils.resolve('./../public/index.html'), // html模板
     })
   ],
-  // // 开发环境本地启动的服务配置
-  // devServer: {}
+  // 开发环境本地启动的服务配置
+  devServer: {
+    contentBase: utils.resolve('./../dist'),
+  }
 })
