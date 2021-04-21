@@ -9,13 +9,12 @@ module.exports = merge(baseWebpackConfig, {
   // 插件
   plugins: [
     new HtmlWebpackPlugin({
-      filename: utils.resolve('./../dist/index.html'), // html模板的生成路径
+      title: 'webpack-react',
       template: utils.resolve('./../public/index.html'), // html模板
     })
   ],
   // 开发环境本地启动的服务配置
   devServer: {
-    contentBase: utils.resolve('./../dist'),
     open: true
   }
 })

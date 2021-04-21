@@ -9,7 +9,6 @@ module.exports = {
   output: {
     path: utils.resolve("../dist"),
     filename: "js/[name].[hash].js",
-    publicPath: "./" // 打包后的资源的访问路径前缀
   },
   // 模块
   module: {
