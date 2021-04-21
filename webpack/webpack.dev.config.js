@@ -34,5 +34,10 @@ module.exports = merge(baseWebpackConfig, {
         secure: false, // 防止转发失败 （默认情况下，将不接受在 HTTPS 上运行且证书无效的后端服务器。）
       },
     },
+    // 出现编译器错误或警告时，在浏览器中显示全屏覆盖
+    overlay: {
+      warnings: true,
+      errors: true,
+    },
   },
 });
