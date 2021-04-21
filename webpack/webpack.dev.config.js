@@ -16,5 +16,6 @@ module.exports = merge(baseWebpackConfig, {
   // 开发环境本地启动的服务配置
   devServer: {
     contentBase: utils.resolve('./../dist'),
+    open: true
   }
 })
