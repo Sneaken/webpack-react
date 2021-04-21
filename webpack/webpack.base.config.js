@@ -31,13 +31,7 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          {
-            loader: 'less-loader', // 编译 Less -> CSS
-          },
-        ],
+        use: ['style-loader', 'css-loader', 'less-loader', 'postcss-loader'],
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
