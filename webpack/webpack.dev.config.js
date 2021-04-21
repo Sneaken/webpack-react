@@ -16,6 +16,8 @@ module.exports = merge(baseWebpackConfig, {
   // 开发环境本地启动的服务配置
   devServer: {
     open: true,
+    // 将运行进度输出到控制台
+    progress: true,
     // 接口转发
     proxy: {
       '/api': {
