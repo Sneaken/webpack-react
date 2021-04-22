@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const devConfig = merge(baseWebpackConfig, {
   // 指定构建环境
   mode: 'development',
+  target: 'web',
   module: {
     rules: [
       {
