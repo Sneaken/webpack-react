@@ -9,11 +9,7 @@ const devConfig = merge(baseWebpackConfig, {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
-      },
-      {
-        test: /\.less$/,
+        test: /\.(c|le)ss$/,
         use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader'],
       },
     ],
