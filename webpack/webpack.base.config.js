@@ -14,20 +14,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, // 一个匹配loaders所处理的文件的拓展名的正则表达式，这里用来匹配js和jsx文件（必须）
-        exclude: /node_modules/, // 屏蔽不需要处理的文件（文件夹）（可选）
-        loader: 'babel-loader', // loader的名称（必须）
+        test: /\.(js|jsx)$/,
+        // exclude 指定要排除的文件
+        // include 指定要包含的文件
+        // exclude 的优先级高于 include, 在 include 和 exclude 中使用绝对路径数组，
+        // 尽量避免 exclude, 更倾向于使用 include
+        include: utils.resolve('../src'),
+        loader: 'babel-loader',
       },
       {
         test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader', // 创建 <style></style>
-          },
-          {
-            loader: 'css-loader', // 转换css
-          },
-        ],
+        use: ['css-loader', 'postcss-loader'],
       },
       {
         test: /\.less$/,
@@ -52,9 +49,15 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json'], // 解析扩展。（当我们通过路导入文件，找不到改文件时，会尝试加入这些后缀继续寻找文件）
+    modules: [utils.resolve('../node_modules')],
+    // 解析扩展。（当我们通过路导入文件，找不到改文件时，会尝试加入这些后缀继续寻找文件）
+    extensions: ['.js', '.jsx', '.json'],
     alias: {
-      '@': utils.resolve('../src'), // 在项目中使用@符号代替src路径，导入文件路径更方便
+      // 在项目中使用@符号代替src路径，导入文件路径更方便
+      '@': utils.resolve('../src'),
+      // 默认情况下， webpack 会从入口文件 ./node_modules/bin/react/index 开始递归解析和处理依赖的文件，可以直接指定文件，避免此处的耗时
+      react: utils.resolve('../node_modules/react/umd/react.production.min.js'),
+      'react-dom': utils.resolve('../node_modules/react-dom/umd/react-dom.production.min.js'),
     },
   },
 };

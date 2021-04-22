@@ -20,6 +20,11 @@ module.exports = merge(baseWebpackConfig, {
       filename: utils.resolve('./../dist/index.html'),
       // html模板
       template: utils.resolve('./../public/index.html'),
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        minifyCSS: true,
+      },
     }),
   ],
 });
