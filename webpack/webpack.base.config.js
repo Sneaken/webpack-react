@@ -1,5 +1,4 @@
 const utils = require('./utils');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   // 入口
@@ -22,14 +21,6 @@ module.exports = {
         // 尽量避免 exclude, 更倾向于使用 include
         include: utils.resolve('../src'),
         loader: 'babel-loader',
-      },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
-      },
-      {
-        test: /\.less$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader', 'postcss-loader'],
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

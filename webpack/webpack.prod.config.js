@@ -12,6 +12,18 @@ module.exports = merge(baseWebpackConfig, {
     // 打包后的资源的访问路径前缀
     publicPath: './',
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+      },
+      {
+        test: /\.less$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader', 'postcss-loader'],
+      },
+    ],
+  },
   // 插件
   plugins: [
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
