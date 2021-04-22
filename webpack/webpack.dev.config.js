@@ -2,12 +2,14 @@ const { merge } = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.config');
 const utils = require('./utils');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = merge(baseWebpackConfig, {
   // 指定构建环境
   mode: 'development',
   // 插件
   plugins: [
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       title: 'webpack-react',
       template: utils.resolve('./../public/index.html'), // html模板

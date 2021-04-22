@@ -1,4 +1,5 @@
 const utils = require('./utils');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   // 入口
@@ -24,11 +25,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['css-loader', 'postcss-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.less$/,
-        use: ['style-loader', 'css-loader', 'less-loader', 'postcss-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader', 'postcss-loader'],
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
