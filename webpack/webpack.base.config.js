@@ -1,6 +1,6 @@
 const utils = require('./utils');
 
-module.exports = {
+const baseConfig = {
   // 入口
   entry: {
     index: './src/index',
@@ -53,3 +53,5 @@ module.exports = {
     },
   },
 };
+
+module.exports = baseConfig;

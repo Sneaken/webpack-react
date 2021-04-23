@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = merge(baseWebpackConfig, {
+const prodConfig = merge(baseWebpackConfig, {
   // 指定构建环境
   mode: 'production',
   output: {
@@ -38,3 +38,5 @@ module.exports = merge(baseWebpackConfig, {
     }),
   ],
 });
+
+module.exports = prodConfig;
