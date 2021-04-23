@@ -25,7 +25,10 @@ const prodConfig = merge(baseWebpackConfig, {
   plugins: [
     new webpack.ProgressPlugin(),
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'static/css/[name].[contenthash:8].css',
+      chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
+    }),
     new HtmlWebpackPlugin({
       title: 'webpack-react',
       // html模板的生成路径

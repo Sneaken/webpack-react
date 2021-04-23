@@ -8,7 +8,7 @@ const baseConfig = {
   // 出口
   output: {
     path: utils.resolve('../dist'),
-    filename: 'js/[name].[hash].js',
+    filename: 'static/js/[name].[contenthash:8].js',
   },
   // 模块
   module: {
