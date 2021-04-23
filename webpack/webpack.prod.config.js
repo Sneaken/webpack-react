@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.config');
 const utils = require('./utils');
@@ -22,6 +23,7 @@ const prodConfig = merge(baseWebpackConfig, {
   },
   // 插件
   plugins: [
+    new webpack.ProgressPlugin(),
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
