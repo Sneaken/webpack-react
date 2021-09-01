@@ -5,6 +5,7 @@ const utils = require('./utils');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const prodConfig = merge(baseWebpackConfig, {
   // 指定构建环境
@@ -42,6 +43,21 @@ const prodConfig = merge(baseWebpackConfig, {
       },
     }),
   ],
+  optimization: {
+    minimize: true,
+    minimizer: [
+      // This is only used in production mode
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorOptions: {
+          // parser: safePostCssParser,
+          map: false,
+        },
+        cssProcessorPluginOptions: {
+          preset: ['default', { minifyFontValues: { removeQuotes: false } }],
+        },
+      }),
+    ],
+  },
 });
 
 module.exports = prodConfig;
